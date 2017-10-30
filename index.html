@@ -196,10 +196,10 @@
 			font-weight: 600;
 		}
 		.icons figure img {
-			width: 100%;
-			height: auto;
 			margin: auto;
 			display: block;
+			max-width: 100%;
+			height: auto;
 		}
 		.icons .img {
 			width: 115px;
@@ -268,11 +268,30 @@
 			margin-bottom: 40px;
 		}
 
+		#partners {
+			padding-top: 40px;
+		}
+		#partners h2 {
+			margin-bottom: 10px;
+		}
+		#partners p {
+			margin-bottom: 15px;
+		}
 		#partners ul.icons {
 			margin: 0 -50px;
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 		#partners ul.icons li {
-			width: 100%;
+			width: 33.333%;
+			margin-bottom: 25px;
+		}
+		#partners ul.icons .img {
+			width: 100px;
+			height: 100px;
+		}
+		#partners ul.icons figcaption {
+			line-height: 40px;
 		}
 
 		#services header {
@@ -284,6 +303,7 @@
 			line-height: 150px;
 		}
 	</style>
+
 
 	<header class="caption">
 		<h1><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h1>
@@ -332,7 +352,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/quickly.svg" alt="Швидко" width="512" height="512">
+						<img src="pictures/quickly.svg" alt="Швидко" width="241" height="241">
 					</div>
 					<figcaption class="white">Швидко</figcaption>
 				</figure>
@@ -348,7 +368,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/available.svg" alt="Доступно" width="964" height="964">
+						<img src="pictures/available.svg" alt="Доступно" width="241" height="241">
 					</div>
 					<figcaption class="white">Доступно</figcaption>
 				</figure>
@@ -356,7 +376,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/transparently.svg" alt="Прозоро" width="46" height="46">
+						<img src="pictures/transparently.svg" alt="Прозоро" width="241" height="241">
 					</div>
 					<figcaption class="white">Прозоро</figcaption>
 				</figure>
@@ -419,7 +439,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/search.svg" alt="Пошук" width="512" height="512">
+						<img src="pictures/search.svg" alt="Пошук" width="241" height="241">
 					</div>
 					<figcaption class="white">Пошуку</figcaption>
 				</figure>
@@ -435,7 +455,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/shopping.svg" alt="Купівлю" width="964" height="964">
+						<img src="pictures/shopping.svg" alt="Купівлю" width="241" height="241">
 					</div>
 					<figcaption class="white">Купівлі</figcaption>
 				</figure>
@@ -443,7 +463,7 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/delivery.svg" alt="Доставку" width="46" height="46">
+						<img src="pictures/delivery.svg" alt="Доставку" width="241" height="241">
 					</div>
 					<figcaption class="white">Доставки</figcaption>
 				</figure>
@@ -512,7 +532,7 @@
 			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
 			<h2>Економічна доцільність проекту</h2>
 		</header>
-		<p>Внаслідок впровадженням нового сервісу та організаційної єдності структур прогнозується:</p>
+		<p>Внаслідок впровадження нового сервісу та організаційної єдності структур прогнозується:</p>
 		<ul>
 			<li class="next"><mark class="mark">Зростання обсягів імпорту</mark> транспортних засобів</li>	
 			<li class="next"><mark class="mark">Збільшення надходжень</mark> до державного та місцевого бюджетів</li>	
@@ -520,13 +540,13 @@
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">Сервісні об’єкти</h2>
+		<h2 class="shout shrink">Додаткові<br>сервісні об’єкти</h2>
 	</section>
 
 	<section class="slide logo-left">
 		<header>
 			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
-			<h2>Сервісні об’єкти на території <mark class="wah">WEST AUTO HUB</mark></h2>
+			<h2>Додаткові cервісні об’єкти на території <mark class="wah">WEST AUTO HUB</mark></h2>
 		</header>
 
 		<ol>
@@ -547,6 +567,14 @@
 			<li class="next">
 				<figure>
 					<div class="img">
+						<img src="pictures/sandor.png" alt="Сантодор" width="347" height="179">
+					</div>
+					<figcaption class="white">Сантодор</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
 						<img src="pictures/ubib.png" alt="Укрбудінвестбанк" width="139" height="82">
 					</div>
 					<figcaption class="white">Укрбудінвестбанк</figcaption>
@@ -555,27 +583,35 @@
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/sandor.png" alt="Сантодор" width="241" height="241">
+						<img src="pictures/ring.jpg" alt="DJ Cafe Ring" width="80" height="80">
 					</div>
-					<figcaption class="white">Сантодор</figcaption>
+					<figcaption class="white">DJ Cafe Ring</figcaption>
 				</figure>
 			</li>
 			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/ring.jpg" alt="DJ Cafe Ring" width="188" height="188">
+						<img src="pictures/awgcars.svg" alt="AWGcars" width="252" height="127">
 					</div>
-					<figcaption class="white">DJ Cafe Ring</figcaption>
+					<figcaption class="white">AWG Cars</figcaption>
 				</figure>
 			</li>
-			<!-- <li class="next">
+			<li class="next">
 				<figure>
 					<div class="img">
-						<img src="pictures/awg.png" alt="AWG" width="71" height="70">
+						<img src="pictures/awg.svg" alt="AWG" width="70" height="70">
 					</div>
 					<figcaption class="white">AWG</figcaption>
 				</figure>
-			</li> -->
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/webex24.png" alt="webex24" width="1200" height="630">
+					</div>
+					<figcaption class="white">Webex24</figcaption>
+				</figure>
+			</li>
 		</ul>
 	</section>
 
