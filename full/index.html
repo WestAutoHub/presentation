@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<title>WEST AUTO HUB</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+<body class="shower list">
+
+	<style>
+
+		.progress {
+			border-color: #154889;
+		}
+
+		mark.mark {
+			background: #ffcc00;
+		}
+		mark.wah {
+			color: white;
+			background: #154889;
+		}
+		mark.imp {
+			background: #cc0000;
+			color: #ffffff;
+		}
+
+		.shower.list {
+			background: #fff;
+		}
+		.shower.list .slide:hover {
+			-webkit-box-shadow: 0 0 0 20px rgba(36, 71, 134,.1), 0 20px 50px rgba(36, 71, 134,.3);
+			box-shadow: 0 0 0 20px rgba(36, 71, 134,.1), 0 20px 50px rgba(36, 71, 134,.3);
+		}
+		.slide header {
+			margin-top: -30px;
+			margin-bottom: 40px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+		.slide header .logo {
+			width: 150px;
+			height: auto;
+		}
+		.slide h2 {
+			color: #244786;
+		}
+		.slide header h2 {
+			text-transform: uppercase;
+			margin-bottom: 0;
+			color: #000;
+			font-size: 26px;
+		}
+		.shower.list {
+			text-align: center;
+			justify-content: center;
+		}
+		.slide {
+			padding-top: 80px;
+		}
+		.slide::after {
+			position: absolute;
+			top: initial;
+			background: none;
+			bottom: 10px;
+			right: 50%;
+			height: auto;
+			transform: translateX(50%);
+			padding-top: 15px;
+			font-size: 20px;
+			color: rgba(36, 71, 134, 0.5);
+		}
+		.slide .cover {
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide .cover {
+			transform: translate(-50%,-50%) scale(1.2);
+		}
+		.shower.full .slide.active .cover {
+			transform: translate(-50%,-50%);
+		}
+
+		/* logo at center */
+		.logo-center .logo {
+			max-width: 300px;
+			height: auto;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.logo-center h2 {
+			text-align: center;
+			margin-bottom: 40px;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .logo-center .logo {
+			width: 400px;
+		}
+		.shower.full .logo-center h2 {
+			margin-top: 140px;
+		}
+		.logo-center p {
+			text-align: center;
+			font-size: 28px;
+			line-height: 40px;
+			margin-bottom: 60px;
+
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+			transition-delay: 0.3s;
+		}
+		.shower.full .logo-center p {
+			opacity: 0;
+			-ms-transform: translateY(50px);
+			transform: translateY(50px);
+		}
+		.shower.full .logo-center.active .logo {
+			max-width: 300px;
+		}
+		.shower.full .logo-center.active h2 {
+			margin-top: 0;
+		}
+		.shower.full .logo-center.active p {
+			opacity: 1;
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+		}
+
+		/* small logo at left & title at right */
+		.logo-left {
+			text-align: left;
+		}
+		.logo-left header {
+			margin-bottom: 70px;
+		}
+		.logo-left h3 {
+			font-size: 140%;
+			position: relative;
+			margin-bottom: 25px;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .logo-left h3 {
+			opacity: 0;
+		}
+		.shower.full .logo-left.active h3 {
+			opacity: 1;
+		}
+		.shower.full .logo-left.active h3.next {
+			opacity: 0;
+		}
+		.shower.full .logo-left.active h3.next.active {
+			opacity: 1;
+		}
+		.logo-left h3::after {
+			content: '';
+			display: block;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			height: 3px;
+			background: #244786;
+			transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .logo-left h3::after {
+			width: 0;
+		}
+		.shower.full .logo-left.active h3::after {
+			width: 100%;
+		}
+		.shower.full .logo-left.active h3.next::after {
+			width: 0;
+		}
+		.shower.full .logo-left.active h3.next.active::after {
+			width: 100%;
+		}
+
+		/* icons at center */
+		ul.icons  {
+			list-style: none;
+			display: flex;
+			align-items: flex-start;
+		}
+		ul.icons li {
+			width: 25%;
+			text-indent: 0;
+		}
+		ul.icons li:before {
+			content: none;
+		}
+		.icons figure {
+			text-align: center;
+		}
+		.icons figcaption {
+			font-size: 32px;
+			font-weight: 600;
+		}
+		.icons figure img {
+			margin: auto;
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+		.icons .img {
+			width: 115px;
+			height: 115px;
+			display: flex;
+			align-items: center;
+			margin: auto;
+			margin-bottom: 5px;
+		}
+		.icons .next {
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .icons .next {
+			opacity: 0;
+			-ms-transform: translateY(100px);
+			transform: translateY(100px);
+		}
+		.shower.full .icons .next.active {
+			opacity: 1;
+			-ms-transform: none;
+			transform: none;
+		}
+		.icons.list figure {
+			display: flex;
+			text-align: left;
+			align-items: center;
+		}
+		.icons.list .img {
+			width: 50px;
+			height: 50px;
+			flex-shrink: 0;
+		}
+		.icons.list li {
+			width: 50%;
+		}
+		.icons.list figcaption {
+			font-size: 26px;
+			line-height: 30px;
+		}
+
+
+		/* map figcaption position */
+		.map .cover + figcaption {
+			bottom: inherit;
+			right: inherit;
+			top: 0;
+			left: 0;
+			padding: 40px;
+			transform: none;
+			opacity: 1;
+			background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+		}
+		.map .cover + figcaption .logo {
+			width: 200px;
+			height: auto;
+			margin-bottom: 30px;
+		}
+		.map .cover + figcaption p {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 26px;
+			margin-bottom: 15px;
+			text-shadow: 
+				1px 1px 2px #fff,
+				-1px -1px 2px #fff,
+				1px -1px 2px #fff,
+				-1px 1px 2px #fff;
+		}
+
+
+		#rights p {
+			text-align: center;
+			font-size: 28px;
+		}
+		#rights header {
+			margin-bottom: 120px;
+		}
+
+		#purpose header {
+			margin-bottom: 10px;
+		}
+		#purpose h3 {
+			font-size: 100%;
+			margin-bottom: 20px;
+		}
+		#purpose ul {
+			font-size: 22px;
+		}
+
+		#how-to-buy p {
+			margin-bottom: 50px;
+			line-height: 35px;
+			text-align: center;
+		}
+		#how-to-buy ul.icons {
+			margin-bottom: 40px;
+		}
+
+		#partners {
+			padding-top: 40px;
+		}
+		#partners h2 {
+			margin-bottom: 10px;
+		}
+		#partners p {
+			margin-bottom: 15px;
+		}
+		#partners ul.icons {
+			margin: 0 -50px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		#partners ul.icons li {
+			width: 33.333%;
+			margin-bottom: 25px;
+		}
+		#partners ul.icons .img {
+			width: 100px;
+			height: 100px;
+		}
+		#partners ul.icons figcaption {
+			line-height: 40px;
+		}
+
+		#services header {
+			margin-bottom: 50px;
+		}
+
+		#services2 header {
+			margin-bottom: 35px;
+		}
+		#services2 .icons.list {
+			flex-wrap: wrap;
+		}
+		#services2 .icons.list li {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		#services2 .icons.list .img {
+			margin: 0;
+			margin-right: 30px;
+		}
+		#services2 figcaption {
+			font-weight: 400;
+		}
+
+		#economic .shout {
+			font-size: 120px;
+			line-height: 150px;
+		}
+	</style>
+
+
+	<header class="caption">
+		<h1><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h1>
+		<p>Надійний помічник для усіх учасників автомобільного ринку</p>
+
+		<style>
+			.caption {
+				color: #000;
+				text-shadow: none;
+			}
+
+			.caption .logo {
+				width: 300px;
+				height: auto;
+			}
+		</style>
+	</header>
+
+	<!-- <section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/wah-flag.jpg" alt="Hands on the orange typewriter in a park">
+		</figure>
+	</section> -->
+
+	<section class="slide logo-center" id="idea">
+		<h2><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h2>
+		<p>Надійний помічник для усіх учасників автомобільного ринку</p>
+		<ul class="icons">
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/quickly.svg" alt="Швидко" width="241" height="241">
+					</div>
+					<figcaption class="white">Швидко</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/qualitatively.svg" alt="Якісно" width="241" height="241">
+					</div>
+					<figcaption class="white">Якісно</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/available.svg" alt="Доступно" width="241" height="241">
+					</div>
+					<figcaption class="white">Доступно</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/transparently.svg" alt="Прозоро" width="241" height="241">
+					</div>
+					<figcaption class="white">Прозоро</figcaption>
+				</figure>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Право громадян</h2>
+	</section>
+
+	<section class="slide logo-left" id="rights">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Право громадян</h2>
+		</header>
+	
+		<p>Законом України дозволено ввезення</p>
+	
+		<ul class="icons list">
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/002-car.svg" alt="Пошук" width="241" height="241">
+					</div>
+					<figcaption class="white">одного траснпортного засобу</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/017-calendar.svg" alt="Замовлення" width="40" height="40">
+					</div>
+					<figcaption class="white">протягом календарного року</figcaption>
+				</figure>
+			</li>
+		</ul>
+	
+		<p class="next">за зниженими ставками акцизного податку</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Мета та завдання</h2>
+	</section>
+
+	<section class="slide logo-left" id="purpose">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>мета і завдання</h2>
+		</header>
+
+		<h3>Мета</h3>
+		<ul>
+			<li class="next">Сприяти у <mark class="mark">поліпшенні рівня</mark> надання послуг</li>
+			<li class="next">Створити <mark class="mark">сприятливі умови</mark> на ввезення транспортного засобу</li>
+			<li class="next">Впровадити <mark class="mark">нові послуги</mark> для автомобільного ринку</li>
+		</ul>
+
+		<h3 class="next">Завдання</h3>
+		<ul>
+			<li class="next">Забезпечити <mark class="mark">прозорість та доступність</mark> процесів</li>
+			<li class="next"><mark class="mark">Ліквідувати корупційну складову</mark></li>
+			<li class="next">Провести територіальну <mark class="mark">локалізацію</mark> партнерів</li>
+			<li class="next">Забезпечити <mark class="mark">швидкість та якість</mark> послуг</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">План комплексу</h2>
+	</section>
+
+	<section class="slide" id="picture-wah">
+		
+		<figure>
+			<img class="cover" src="pictures/WAH-scheme.jpg" alt="WAH структура та схема території">
+			<figcaption class="white">
+				<a href="https://wah.com.ua/">WAH</a>
+			</figcaption>
+		</figure>
+		<style>
+			#picture h2 {
+				color:#FFF;
+				}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Як стати автовласником з WEST&nbsp;AUTO&nbsp;HUB?</h2>
+		<!-- Як стати власником авто з&nbsp;WAH? -->
+	</section>
+
+	<section class="slide logo-left" id="how-to-buy">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Як стати автовласником з <mark class="wah">WEST AUTO HUB</mark> ?</h2>
+		</header>
+
+		<p>Заповніть заявку на сайті або зателефонуйте нам і наші менеджери виконають усі необхідні дії для</p>
+
+		<ul class="icons">
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/search.svg" alt="Пошук" width="241" height="241">
+					</div>
+					<figcaption class="white">Пошуку</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/exam.svg" alt="Замовлення" width="241" height="241">
+					</div>
+					<figcaption class="white">Замовлення</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/shopping.svg" alt="Купівлю" width="241" height="241">
+					</div>
+					<figcaption class="white">Купівлі</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/delivery.svg" alt="Доставку" width="241" height="241">
+					</div>
+					<figcaption class="white">Доставки</figcaption>
+				</figure>
+			</li>
+		</ul>
+
+		<p class="next">транспортного засобу з країн Європи та США</p>
+	</section>
+
+	<!-- <section class="slide" id="picture-zmk">	
+		<figure>
+			<img width="100%" class="cover" src="pictures/zmk.jpg" alt="Зона митного контролю">
+		</figure>
+	</section> -->
+
+	<section class="slide">
+		<h2 class="shout shrink">Переваги комплексу WEST&nbsp;AUTO&nbsp;HUB</h2>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>зона митного контролю</h2>
+		</header>
+		<p>В комплексі <mark class="wah">WEST AUTO HUB</mark> функціонують:</p>
+		<ul>
+			<li class="next">Зона митного контролю (ЗМК)</li>
+			<li class="next">Підрозділ митного органу (ВМО №2 МП «Луцьк» Волинської митниці ДФС)</li>
+		</ul>
+		<p class="next">де здійснюється митне оформлення транспортних засобів з поданням <strong>митної декларації</strong> в електронному вигляді.</p>
+	</section>
+
+	<!-- <section class="slide" id="picture-tsc">	
+		<figure>
+			<img height="100%" class="cover" src="pictures/wah.jpg" alt="Територіальний сервісний центр">
+		</figure>
+	</section> -->
+
+	<section class="slide logo-left" id="services">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>територіальний сервісний центр МВС України</h2>
+		</header>
+		<p>В комплексі <mark class="wah">WEST AUTO HUB</mark> функціонуватимуть:</p>
+		<ul>
+			<li>Територіальний сервісний центр МВС України:</li>
+			<ul>
+				<li class="next">Державна реєстрація транспортних засобів</li>	
+				<li class="next">Отримання технічного паспорту</li>	
+				<li class="next">Видача державних реєстраційних знаків (будь-якого регіону України)</li>	
+			</ul>
+			<li class="next">Науково-дослідне бюро судових експертиз:</li>
+			<ul>
+				<li class="next">Повне дослідження транспортного засобу</li>	
+				<li class="next">Складання висновку фахівця визначеного зразка</li>	
+			</ul>
+		</ul>
+	</section>
+
+	<section class="slide" id="economic">
+		<h2 class="shout shrink">Економічна доцільність проекту</h2>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Економічна доцільність проекту</h2>
+		</header>
+		<p>Внаслідок впровадження нового сервісу та організаційної єдності структур прогнозується:</p>
+		<ul>
+			<li class="next"><mark class="mark">Зростання обсягів імпорту</mark> транспортних засобів</li>	
+			<li class="next"><mark class="mark">Збільшення надходжень</mark> до державного та місцевого бюджетів</li>	
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Додаткові<br>сервісні об’єкти</h2>
+	</section>
+
+	<section class="slide logo-left" id="services2">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Додаткові cервісні об’єкти на території <mark class="wah">WEST AUTO HUB</mark></h2>
+		</header>
+
+		<ul class="icons list">
+			<li>
+				<figure>
+					<div class="img">
+						<img src="pictures/008-atm.svg" alt="Відділення банку" width="241" height="241">
+					</div>
+					<figcaption class="white">Відділення банку</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/exam.svg" alt="Страхова компанія" width="241" height="241">
+					</div>
+					<figcaption class="white">Страхова компанія</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/007-settings.svg" alt="Станція технічного обслуговування (СТО)" width="241" height="241">
+					</div>
+					<figcaption class="white">Станція технічного обслуговування (СТО)</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/004-car-wash.svg" alt="Сучасна автомобільна мийка" width="241" height="241">
+					</div>
+					<figcaption class="white">Сучасна автомобільна мийка</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/001-plug.svg" alt="Станція зарядки електромобілів" width="241" height="241">
+					</div>
+					<figcaption class="white">Станція зарядки електромобілів</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/005-fast-food.svg" alt="Заклад громадського харчування" width="241" height="241">
+					</div>
+					<figcaption class="white">Заклад громадського харчування</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/003-sofa.svg" alt="Комфортна зона відпочинку" width="241" height="241">
+					</div>
+					<figcaption class="white">Комфортна зона відпочинку</figcaption>
+				</figure>
+			</li>
+		</ol>
+	</section>
+
+	<section class="slide logo-center" id="partners">
+		<h2><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h2>
+		<p>Наші партнери з надання послуг на території<br>комплексу <mark class="wah">WEST AUTO HUB</mark></p>
+		<ul class="icons">
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/awg.svg" alt="AWG" width="70" height="70">
+					</div>
+					<figcaption class="white">AWG</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/awgcars.svg" alt="AWGcars" width="252" height="127">
+					</div>
+					<figcaption class="white">AWG Cars</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/webex24.png" alt="webex24" width="1200" height="630">
+					</div>
+					<figcaption class="white">Webex24</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/sandor.png" alt="Сантодор" width="347" height="179">
+					</div>
+					<figcaption class="white">Сантодор</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/ubib.png" alt="Укрбудінвестбанк" width="139" height="82">
+					</div>
+					<figcaption class="white">Укрбудінвестбанк</figcaption>
+				</figure>
+			</li>
+			<li class="next">
+				<figure>
+					<div class="img">
+						<img src="pictures/ring.jpg" alt="DJ Cafe Ring" width="80" height="80">
+					</div>
+					<figcaption class="white">DJ Cafe Ring</figcaption>
+				</figure>
+			</li>
+		</ul>
+	</section>
+
+	<!-- <section class="slide">
+		<h2 class="shout shrink">Наша адреса</h2>
+	</section> -->
+
+	<section class="slide map">
+		<figure>
+			<img height="100%" class="cover" src="pictures/map.jpg" alt="Наша адреса">
+			<figcaption>
+				<img class="logo" src="pictures/logo-dark.svg" alt="WAH" width="1000" height="302">
+				<p>WEST AUTO HUB</p>
+				<p>вул. Рівненська, 74, с. Струмівка,<br>Волинська область, Україна</p>
+				<p><a href="">www.wah.com.ua</a></p>
+			</figcaption>
+		</figure>
+	</section>
+
+	<div class="progress"></div>
+
+	<script src="shower/shower.min.js"></script>
+
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108623010-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'UA-108623010-1');
+	</script>
+</body>
+</html>
