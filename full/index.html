@@ -84,6 +84,28 @@
 			transform: translate(-50%,-50%);
 		}
 
+
+		/* Animation */
+		.shower.full .slide li {
+			transform: translateY(10px);
+			opacity: 0;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide.active p {
+			transform: none;
+			opacity: 1;
+		}
+		.shower.full .slide p {
+			transform: translateY(10px);
+			opacity: 0;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide.active li {
+			transform: none;
+			opacity: 1;
+		}
+
+
 		/* logo at center */
 		.logo-center .logo {
 			max-width: 300px;
@@ -374,17 +396,17 @@
 		</style>
 	</header>
 
-	<!-- <section class="slide" id="cover">
+	<section class="slide" id="cover">
 		<figure>
 			<img class="cover" src="pictures/wah-flag.jpg" alt="Hands on the orange typewriter in a park">
 		</figure>
-	</section> -->
+	</section>
 
 	<section class="slide logo-center" id="idea">
 		<h2><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h2>
 		<p>Надійний помічник для усіх учасників автомобільного ринку</p>
 		<ul class="icons">
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/quickly.svg" alt="Швидко" width="241" height="241">
@@ -392,7 +414,7 @@
 					<figcaption class="white">Швидко</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/qualitatively.svg" alt="Якісно" width="241" height="241">
@@ -400,7 +422,7 @@
 					<figcaption class="white">Якісно</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/available.svg" alt="Доступно" width="241" height="241">
@@ -408,7 +430,7 @@
 					<figcaption class="white">Доступно</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/transparently.svg" alt="Прозоро" width="241" height="241">
@@ -432,15 +454,15 @@
 		<p>Законом України дозволено ввезення</p>
 	
 		<ul class="icons list">
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/002-car.svg" alt="Пошук" width="241" height="241">
 					</div>
-					<figcaption class="white">одного траснпортного засобу</figcaption>
+					<figcaption class="white">одного транспортного засобу</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/017-calendar.svg" alt="Замовлення" width="40" height="40">
@@ -450,7 +472,7 @@
 			</li>
 		</ul>
 	
-		<p class="next">за зниженими ставками акцизного податку</p>
+		<p>за зниженими ставками акцизного податку</p>
 	</section>
 
 	<section class="slide">
@@ -465,17 +487,17 @@
 
 		<h3>Мета</h3>
 		<ul>
-			<li class="next">Сприяти у <mark class="mark">поліпшенні рівня</mark> надання послуг</li>
-			<li class="next">Створити <mark class="mark">сприятливі умови</mark> на ввезення транспортного засобу</li>
-			<li class="next">Впровадити <mark class="mark">нові послуги</mark> для автомобільного ринку</li>
+			<li>Сприяти у <mark class="mark">поліпшенні рівня</mark> надання послуг</li>
+			<li>Створити <mark class="mark">сприятливі умови</mark> на ввезення транспортного засобу</li>
+			<li>Впровадити <mark class="mark">нові послуги</mark> для автомобільного ринку</li>
 		</ul>
 
-		<h3 class="next">Завдання</h3>
+		<h3>Завдання</h3>
 		<ul>
-			<li class="next">Забезпечити <mark class="mark">прозорість та доступність</mark> процесів</li>
-			<li class="next"><mark class="mark">Ліквідувати корупційну складову</mark></li>
-			<li class="next">Провести територіальну <mark class="mark">локалізацію</mark> партнерів</li>
-			<li class="next">Забезпечити <mark class="mark">швидкість та якість</mark> послуг</li>
+			<li>Забезпечити <mark class="mark">прозорість та доступність</mark> процесів</li>
+			<li><mark class="mark">Ліквідувати корупційну складову</mark></li>
+			<li>Провести територіальну <mark class="mark">локалізацію</mark> партнерів</li>
+			<li>Забезпечити <mark class="mark">швидкість та якість</mark> послуг</li>
 		</ul>
 	</section>
 
@@ -512,7 +534,7 @@
 		<p>Заповніть заявку на сайті або зателефонуйте нам і наші менеджери виконають усі необхідні дії для</p>
 
 		<ul class="icons">
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/search.svg" alt="Пошук" width="241" height="241">
@@ -520,7 +542,7 @@
 					<figcaption class="white">Пошуку</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/exam.svg" alt="Замовлення" width="241" height="241">
@@ -528,7 +550,7 @@
 					<figcaption class="white">Замовлення</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/shopping.svg" alt="Купівлю" width="241" height="241">
@@ -536,7 +558,7 @@
 					<figcaption class="white">Купівлі</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/delivery.svg" alt="Доставку" width="241" height="241">
@@ -546,7 +568,7 @@
 			</li>
 		</ul>
 
-		<p class="next">транспортного засобу з країн Європи та США</p>
+		<p>транспортного засобу з країн Європи та США</p>
 	</section>
 
 	<!-- <section class="slide" id="picture-zmk">	
@@ -566,10 +588,10 @@
 		</header>
 		<p>В комплексі <mark class="wah">WEST AUTO HUB</mark> функціонують:</p>
 		<ul>
-			<li class="next">Зона митного контролю (ЗМК)</li>
-			<li class="next">Підрозділ митного органу (ВМО №2 МП «Луцьк» Волинської митниці ДФС)</li>
+			<li>Зона митного контролю (ЗМК)</li>
+			<li>Підрозділ митного органу (ВМО №2 МП «Луцьк» Волинської митниці ДФС)</li>
 		</ul>
-		<p class="next">де здійснюється митне оформлення транспортних засобів з поданням <strong>митної декларації</strong> в електронному вигляді.</p>
+		<p>де здійснюється митне оформлення транспортних засобів з поданням <strong>митної декларації</strong> в електронному вигляді.</p>
 	</section>
 
 	<!-- <section class="slide" id="picture-tsc">	
@@ -587,14 +609,14 @@
 		<ul>
 			<li>Територіальний сервісний центр МВС України:</li>
 			<ul>
-				<li class="next">Державна реєстрація транспортних засобів</li>	
-				<li class="next">Отримання технічного паспорту</li>	
-				<li class="next">Видача державних реєстраційних знаків (будь-якого регіону України)</li>	
+				<li>Державна реєстрація транспортних засобів</li>	
+				<li>Отримання технічного паспорту</li>	
+				<li>Видача державних реєстраційних знаків (будь-якого регіону України)</li>	
 			</ul>
-			<li class="next">Науково-дослідне бюро судових експертиз:</li>
+			<li>Науково-дослідне бюро судових експертиз:</li>
 			<ul>
-				<li class="next">Повне дослідження транспортного засобу</li>	
-				<li class="next">Складання висновку фахівця визначеного зразка</li>	
+				<li>Повне дослідження транспортного засобу</li>	
+				<li>Складання висновку фахівця визначеного зразка</li>	
 			</ul>
 		</ul>
 	</section>
@@ -610,8 +632,8 @@
 		</header>
 		<p>Внаслідок впровадження нового сервісу та організаційної єдності структур прогнозується:</p>
 		<ul>
-			<li class="next"><mark class="mark">Зростання обсягів імпорту</mark> транспортних засобів</li>	
-			<li class="next"><mark class="mark">Збільшення надходжень</mark> до державного та місцевого бюджетів</li>	
+			<li><mark class="mark">Зростання обсягів імпорту</mark> транспортних засобів</li>	
+			<li><mark class="mark">Збільшення надходжень</mark> до державного та місцевого бюджетів</li>	
 		</ul>
 	</section>
 
@@ -634,7 +656,7 @@
 					<figcaption class="white">Відділення банку</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/exam.svg" alt="Страхова компанія" width="241" height="241">
@@ -642,7 +664,7 @@
 					<figcaption class="white">Страхова компанія</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/007-settings.svg" alt="Станція технічного обслуговування (СТО)" width="241" height="241">
@@ -650,7 +672,7 @@
 					<figcaption class="white">Станція технічного обслуговування (СТО)</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/004-car-wash.svg" alt="Сучасна автомобільна мийка" width="241" height="241">
@@ -658,7 +680,7 @@
 					<figcaption class="white">Сучасна автомобільна мийка</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/001-plug.svg" alt="Станція зарядки електромобілів" width="241" height="241">
@@ -666,7 +688,7 @@
 					<figcaption class="white">Станція зарядки електромобілів</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/005-fast-food.svg" alt="Заклад громадського харчування" width="241" height="241">
@@ -674,7 +696,7 @@
 					<figcaption class="white">Заклад громадського харчування</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/003-sofa.svg" alt="Комфортна зона відпочинку" width="241" height="241">
@@ -689,7 +711,7 @@
 		<h2><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h2>
 		<p>Наші партнери з надання послуг на території<br>комплексу <mark class="wah">WEST AUTO HUB</mark></p>
 		<ul class="icons">
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/awg.svg" alt="AWG" width="70" height="70">
@@ -697,7 +719,7 @@
 					<figcaption class="white">AWG</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/awgcars.svg" alt="AWGcars" width="252" height="127">
@@ -705,7 +727,7 @@
 					<figcaption class="white">AWG Cars</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/webex24.png" alt="webex24" width="1200" height="630">
@@ -713,7 +735,7 @@
 					<figcaption class="white">Webex24</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/sandor.png" alt="Сантодор" width="347" height="179">
@@ -721,7 +743,7 @@
 					<figcaption class="white">Сантодор</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/ubib.png" alt="Укрбудінвестбанк" width="139" height="82">
@@ -729,7 +751,7 @@
 					<figcaption class="white">Укрбудінвестбанк</figcaption>
 				</figure>
 			</li>
-			<li class="next">
+			<li>
 				<figure>
 					<div class="img">
 						<img src="pictures/ring.jpg" alt="DJ Cafe Ring" width="80" height="80">
