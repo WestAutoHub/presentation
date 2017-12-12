@@ -276,6 +276,9 @@
 			padding: 0 20px;
 			box-sizing: border-box;
 		}
+		ul.graphs li:nth-child(-n + 2) {
+			margin-bottom: 30px;
+		}
 		ul.graphs li:before {
 			content: none;
 		}
@@ -287,18 +290,84 @@
 		ul.graphs li.description {
 			width: 100%;
 			text-indent: 0;
-			font-size: 16px;
-			line-height: 24px;
-			text-align: center;
-			margin-top: 30px;
+			font-size: 12px;
+			line-height: 20px;
+			margin-bottom: 10px;
 		}
 		ul.graphs span.indecator {
 			width: 15px;
 			height: 15px;
 			display: inline-block;
-			background-color: #295096;
 			margin-bottom: -3px;
 			margin-right: 5px;
+		}
+		.conclusion {
+			display: flex;
+			flex-wrap: wrap;
+			font-size: 16px;
+			margin-top: 20px;
+			line-height: 25px;
+		}
+		.conclusion b {
+			font-size: 18px;
+		}
+		.conclusion .main {
+			display: block;
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.conclusion .half {
+			display: block;
+			width: 50%;
+			text-align: center;
+			position: relative;
+		}
+		.conclusion .half.left::before {
+			content: '';
+			position: absolute;
+			bottom: 110%;
+			left: 58%;
+			width: 7px;
+			height: 7px;
+			border-bottom: 1px solid #222;
+			border-left: 1px solid #222;
+			transform: rotate(30deg);
+			transform-origin: left bottom;
+		}
+		.conclusion .half.left::after {
+			content: '';
+			position: absolute;
+			bottom: 110%;
+			left: calc(58% + 1px);
+			width: 20%;
+			height: 1px;
+			background: #222;
+			transform: rotate(-10deg);
+			transform-origin: left bottom;
+		}
+		.conclusion .half.right::before {
+			content: '';
+			position: absolute;
+			bottom: 110%;
+			right: 58%;
+			width: 7px;
+			height: 7px;
+			border-bottom: 1px solid #222;
+			border-right: 1px solid #222;
+			transform: rotate(-30deg);
+			transform-origin: right bottom;
+		}
+		.conclusion .half.right::after {
+			content: '';
+			position: absolute;
+			bottom: 110%;
+			right: calc(58% + 1px);
+			width: 20%;
+			height: 1px;
+			background: #222;
+			transform: rotate(10deg);
+			transform-origin: right bottom;
 		}
 
 
@@ -366,11 +435,14 @@
 		#partners {
 			padding-top: 40px;
 		}
+		#partners.logo-center.active .logo {
+			max-width: 250px;
+		}
 		#partners h2 {
 			margin-bottom: 10px;
 		}
 		#partners p {
-			margin-bottom: 15px;
+			margin-bottom: 30px;
 		}
 		#partners ul.icons {
 			margin: 0 -50px;
@@ -378,7 +450,7 @@
 			justify-content: center;
 		}
 		#partners ul.icons li {
-			width: 33.333%;
+			width: 25%;
 			margin-bottom: 25px;
 		}
 		#partners ul.icons .img {
@@ -386,7 +458,8 @@
 			height: 100px;
 		}
 		#partners ul.icons figcaption {
-			line-height: 40px;
+			line-height: 30px;
+			font-size: 26px;
 		}
 
 		#services header {
@@ -414,6 +487,9 @@
 		#economic .shout {
 			font-size: 120px;
 			line-height: 150px;
+		}
+		#economic.first {
+			padding-top: 40px;
 		}
 	</style>
 
@@ -662,11 +738,11 @@
 		</ul>
 	</section>
 
-	<!--<section class="slide" id="economic">
+	<section class="slide" id="economic">
 		<h2 class="shout shrink">Економічна доцільність проекту</h2>
-	</section>-->
+	</section>
 
-	<!--<section class="slide" id="economic">
+	<section class="slide first" id="economic">
 		<ul class="graphs">
 			<li>
 				<img src="pictures/slide-1-1.svg" alt="" width="792" height="850">
@@ -675,12 +751,20 @@
 				<img src="pictures/slide-1-2.svg" alt="" width="805" height="876">
 			</li>
 			<li class="description">
-				<span class="indecator"></span> - кількість транспортних засобів ввезених на митну територію України в митному режимі “імпорт”
+				<span class="indecator" style="background-color: #4A90E2"></span> - кількість ввезених на митну територію України транспортних засобів в митному режимі “імпорт”
+			</li>
+			<li class="description">
+				<span class="indecator" style="background-color: #DE5153"></span> - кількість ввезених на митну територію України та оформлених транспортних засобів в митному режимі “імпорт”
 			</li>
 		</ul>
-	</section>-->
+		<div class="conclusion">
+			<p class="main">Спостерігається ймовірне зростання</p>
+			<p class="half left">ввезення транспортних засобів на <b>10%</b></p>
+			<p class="half right">ввезення та оформлення транспортних засобів на <b>20%</b></p>
+		</div>
+	</section>
 
-	<!--<section class="slide" id="economic">
+	<section class="slide" id="economic">
 		<ul class="graphs">
 			<li>
 				<img src="pictures/slide-2-1.svg" alt="" width="861" height="977">
@@ -689,7 +773,12 @@
 				<img src="pictures/slide-2-2.svg" alt="" width="850" height="977">
 			</li>
 		</ul>
-	</section>-->
+		<div class="conclusion">
+			<p class="main">З урахуванням</p>
+			<p class="half left">середньої суми платежів<br>за митне оформлення ТЗ<br>в сумі <b>69 500 грн</b></p>
+			<p class="half right">вартості адміністративної послуги<br>при реєстрації транспорного засобу<br>в сумі <b>519 грн</b></p>
+		</div>
+	</section>
 
 	<!--<section class="slide logo-left">
 		<header>
@@ -788,7 +877,7 @@
 			<li>
 				<figure>
 					<div class="img">
-						<img src="pictures/awgcars.svg" alt="AWGcars" width="252" height="127">
+						<img src="pictures/awgcars.svg" alt="AWG Cars" width="252" height="127">
 					</div>
 					<figcaption class="white">AWG Cars</figcaption>
 				</figure>
@@ -796,9 +885,17 @@
 			<li>
 				<figure>
 					<div class="img">
-						<img src="pictures/webex24.png" alt="webex24" width="1200" height="630">
+						<img src="pictures/webex24.png" alt="Webex24" width="1200" height="630">
 					</div>
 					<figcaption class="white">Webex24</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<div class="img">
+						<img src="pictures/setam.png" alt="СЕТАМ" width="1200" height="630">
+					</div>
+					<figcaption class="white">СЕТАМ</figcaption>
 				</figure>
 			</li>
 			<li>
@@ -839,7 +936,7 @@
 				<img class="logo" src="pictures/logo-dark.svg" alt="WAH" width="1000" height="302">
 				<p>WEST AUTO HUB</p>
 				<p>вул. Рівненська, 74, с. Струмівка,<br>Волинська область, Україна</p>
-				<p><a href="">www.wah.com.ua</a></p>
+				<p><a href="https://www.westautohub.com/">www.westautohub.com</a></p>
 			</figcaption>
 		</figure>
 	</section>
