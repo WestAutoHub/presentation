@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<title>WEST AUTO HUB</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+<body class="shower list">
+
+	<style>
+
+		.progress {
+			border-color: #154889;
+		}
+
+		mark.mark {
+			background: #ffcc00;
+		}
+		mark.wah {
+			color: white;
+			background: #154889;
+		}
+		mark.imp {
+			background: #cc0000;
+			color: #ffffff;
+		}
+
+		.shower.list {
+			background: #fff;
+		}
+		.shower.list .slide:hover {
+			-webkit-box-shadow: 0 0 0 20px rgba(36, 71, 134,.1), 0 20px 50px rgba(36, 71, 134,.3);
+			box-shadow: 0 0 0 20px rgba(36, 71, 134,.1), 0 20px 50px rgba(36, 71, 134,.3);
+		}
+		.slide header {
+			margin-top: -30px;
+			margin-bottom: 40px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+		.slide header .logo {
+			width: 150px;
+			height: auto;
+		}
+		.slide h2 {
+			color: #244786;
+		}
+		.slide header h2 {
+			text-transform: uppercase;
+			margin-bottom: 0;
+			color: #000;
+			font-size: 26px;
+		}
+		.shower.list {
+			text-align: center;
+			justify-content: center;
+		}
+		.slide {
+			padding: 80px;
+			padding-bottom: 0;
+		}
+		.slide::after {
+			position: absolute;
+			top: initial;
+			background: none;
+			bottom: 10px;
+			right: 50%;
+			height: auto;
+			transform: translateX(50%);
+			padding-top: 15px;
+			font-size: 20px;
+			color: rgba(36, 71, 134, 0.5);
+		}
+		.slide .cover {
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide .cover {
+			transform: translate(-50%,-50%) scale(1.2);
+		}
+		.shower.full .slide.active .cover {
+			transform: translate(-50%,-50%);
+		}
+		.shower.full .slide .shout.shrink {
+			margin-top: -50px;
+		}
+
+		.cover + figcaption.logo {
+			opacity: 1;
+		}
+		.cover + figcaption.logo a {
+			text-decoration: none;
+			background: none;
+		}
+
+
+		/* Animation */
+		.shower.full .slide li {
+			transform: translateY(10px);
+			opacity: 0;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide.active p {
+			transform: none;
+			opacity: 1;
+		}
+		.shower.full .slide p {
+			transform: translateY(10px);
+			opacity: 0;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .slide.active li {
+			transform: none;
+			opacity: 1;
+		}
+
+
+		/* small logo at left & title at right */
+		.logo-left {
+			text-align: left;
+		}
+		.logo-left header {
+			margin: -50px -80px 20px -80px;
+			padding: 20px 80px;
+		}
+		.logo-left h3 {
+			font-size: 140%;
+			position: relative;
+			margin-bottom: 25px;
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .logo-left h3 {
+			opacity: 0;
+		}
+		.shower.full .logo-left.active h3 {
+			opacity: 1;
+		}
+		.shower.full .logo-left.active h3.next {
+			opacity: 0;
+		}
+		.shower.full .logo-left.active h3.next.active {
+			opacity: 1;
+		}
+		.logo-left h3::after {
+			content: '';
+			display: block;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			height: 3px;
+			background: #244786;
+			transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .logo-left h3::after {
+			width: 0;
+		}
+		.shower.full .logo-left.active h3::after {
+			width: 100%;
+		}
+		.shower.full .logo-left.active h3.next::after {
+			width: 0;
+		}
+		.shower.full .logo-left.active h3.next.active::after {
+			width: 100%;
+		}
+		#cover.logo-left header {
+			background: rgba(255, 255, 255, 0.3);
+		}
+		.slide li img {
+			vertical-align: middle;
+		}
+
+
+		/* scheme list */
+		.slide .scheme-list {
+			display: flex;
+			flex-wrap: wrap; 
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			font-size: 20px;
+			line-height: 35px;
+			text-align: center;
+			margin: 0 -30px;
+		}
+		.slide .scheme-item {
+			padding: 30px;
+			text-indent: unset;
+			width: calc(33.333%);
+			display: flex;
+			position: relative;
+		}
+		.slide .scheme-item::before {
+			content: none;
+		}
+		.slide .scheme-item::after {
+			content: '';
+			right: 0;
+			top: calc(50% - 1px);
+			height: 2px;
+			background: #ffcc00;
+			width: 50px;
+			position: absolute;
+			transform: translateX(50%);
+		}
+		.slide .scheme-item:nth-child(3n)::after {
+			right: calc(50% - 1px);
+			top: 100%;
+			transform: translateY(-50%);
+			height: 50px;
+			width: 2px;
+		}
+		.slide .scheme-item:last-child::after {
+			content: none;
+		}
+		.slide .scheme-wrap {
+			border: 2px solid #154889;
+			border-radius: 10px;
+			padding: 10px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+
+		/* icons at center */
+		ul.icons  {
+			list-style: none;
+			display: flex;
+			align-items: flex-start;
+		}
+		ul.icons li {
+			width: 25%;
+			text-indent: 0;
+		}
+		ul.icons li:before {
+			content: none;
+		}
+		.icons figure {
+			text-align: center;
+		}
+		.icons figcaption {
+			font-size: 32px;
+			font-weight: 600;
+		}
+		.icons figure img {
+			margin: auto;
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+		.icons .img {
+			width: 115px;
+			height: 115px;
+			display: flex;
+			align-items: center;
+			margin: auto;
+			margin-bottom: 5px;
+		}
+		.icons .next {
+			transition: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+		}
+		.shower.full .icons .next {
+			opacity: 0;
+			-ms-transform: translateY(100px);
+			transform: translateY(100px);
+		}
+		.shower.full .icons .next.active {
+			opacity: 1;
+			-ms-transform: none;
+			transform: none;
+		}
+		.icons.list figure {
+			display: flex;
+			text-align: left;
+			align-items: center;
+		}
+		.icons.list .img {
+			width: 50px;
+			height: 50px;
+			flex-shrink: 0;
+		}
+		.icons.list li {
+			width: 50%;
+		}
+		.icons.list figcaption {
+			font-size: 26px;
+			line-height: 30px;
+		}
+
+
+		/* map figcaption position */
+		.map .cover + figcaption {
+			bottom: inherit;
+			right: inherit;
+			top: 0;
+			left: 0;
+			padding: 40px;
+			transform: none;
+			opacity: 1;
+			background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+			background-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%);
+		}
+		.map .cover + figcaption .logo {
+			width: 200px;
+			height: auto;
+			margin-bottom: 30px;
+		}
+		.map .cover + figcaption p {
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 26px;
+			margin-bottom: 15px;
+			text-shadow: 
+				1px 1px 2px #fff,
+				-1px -1px 2px #fff,
+				1px -1px 2px #fff,
+				-1px 1px 2px #fff;
+		}
+
+
+		/* typography */
+		.font-sm {
+			font-size: 20px;
+			line-height: 35px;
+		}
+
+
+		/* list-lg */
+		.slide ul.list-lg {
+			margin-top: 60px;
+		}
+		.slide ul.list-lg li {
+			margin-bottom: 20px;
+		}
+	</style>
+
+
+	<header class="caption">
+		<h1><img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302"></h1>
+		<p>Надійний помічник для усіх учасників автомобільного ринку</p>
+
+		<style>
+			.caption {
+				color: #000;
+				text-shadow: none;
+			}
+
+			.caption .logo {
+				width: 300px;
+				height: auto;
+			}
+		</style>
+	</header>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/wah-flag.jpg" alt="Hands on the orange typewriter in a park">
+		</figure>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Основні положення</h2>
+		</header>
+	
+		<p><mark class="wah">West Auto Hub</mark> – це оптимальне рішення для всіх майбутніх автовласників.</p>
+
+		<p><b>Наша місія</b>: надавати послуги європейського рівня для всіх, хто хоче купити автомобіль та тих, котрі вже мають авто по всій
+		Україні.</p>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Цілі та завдання</h2>
+		</header>
+	
+		<ul>
+			
+			<li>Вийти на якісно новий рівень співпраці з нашими партнерами та клієнтами.</li>
+			<li>Розповсюдження мережі West Auto Hub по Україні.</li>
+			<li>Створення логістичного хабу для задоволення потреб всіх офісів.</li>
+			<li>Створення майданчиків для продажу авто на місцях.</li>
+			<li>Налагодження системної доставка автомобілів з США.</li>
+			<li>Компю’терна діагностика авто перед покупкою (як додаткова послуга).</li>
+			<li>Ефективне навчання персоналу новостворених офісів.</li>
+		</ul>
+	</section>
+
+	<section class="slide logo-left font-sm">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Аналіз SWOT</h2>
+		</header>
+
+		<ul>
+			<li><mark class="mark"><b>Сильні сторони</b></mark> : цінова політика, мобільність офісів, невеликі початкові інвестиції, підтримка оптових клієнтів в розвитку мережі, створення додаткового попиту через рекламну кампанію, універсальність та уніфікованість послуг та процесів співпраці з клієнтом, персонал з досвідом роботи за кордоном;</li>
+			<li><mark class="mark"><b>Оцінка слабких сторін</b></mark> : оптимізація комунікації між офісами та департаментами, стимулювання каналів збуту та залучення нових клієнтів;</li>
+			<li><mark class="mark"><b>Можливості для розвитку</b></mark> : надання універсального пакету послуг без посередників, розвиток в геометричній прогресії у зв’язку з розширенням мережі, потенціал партнерської співпраці з іноземними автодилерами, створення нових робочих місць;</li>
+			<li><mark class="mark"><b>Можливі загрози</b></mark> : залежність попиту від валютних коливань, доставка автомобіля та переїзд через кордон, митна політика держави, законодавчі ініціативи політиків, пом’якшення політики щодо авто з іноземною реєстрацією;</li>
+		</ul>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/WAH-scheme.png" alt="WAH структура та схема території">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/"><img src="pictures/logo-light.svg" width="80" alt=""></a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/scheme.png" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-dark.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-1-2.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-dark.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-2.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-light.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-3.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-light.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-4.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-dark.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-5.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-light.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide" id="cover">
+		<figure>
+			<img class="cover" src="pictures/complex-7.jpg" alt="WAH Scheme">
+			<figcaption class="white logo">
+				<a href="https://wah.com.ua/">
+					<img src="pictures/logo-light.svg" width="80" alt="">
+				</a>
+			</figcaption>
+		</figure>
+	</section>
+
+	<section class="slide logo-left" id="cover">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Офіс для менеджерів <mark class="wah">West Auto Hub</mark> по Україні</h2>
+		</header>
+
+		<figure>
+			<img class="cover" src="pictures/office-1.jpg" alt="WAH Office-1">
+		</figure>
+	</section>
+
+	<section class="slide logo-left" id="cover">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Офіс для менеджерів <mark class="wah">West Auto Hub</mark> по Україні</h2>
+		</header>
+
+		<figure>
+			<img class="cover" src="pictures/office-2.jpg" alt="WAH Office-2">
+		</figure>
+	</section>
+
+	<section class="slide logo-left" id="cover">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Офіс для менеджерів <mark class="wah">West Auto Hub</mark> по Україні</h2>
+		</header>
+
+		<figure>
+			<img class="cover" src="pictures/office-3.jpg" alt="WAH Office-3">
+		</figure>
+	</section>
+
+	<section class="slide logo-left" id="cover">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Офіс для менеджерів <mark class="wah">West Auto Hub</mark> по Україні</h2>
+		</header>
+
+		<figure>
+			<img class="cover" src="pictures/office-4.jpg" alt="WAH Office-4">
+		</figure>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Структура надання послуг</h2>
+		</header>
+
+		<ul class="scheme-list">
+			<li class="scheme-item">
+				<div class="scheme-wrap">Фронт офіс West Auto HUB</div>
+			</li>
+			<li class="scheme-item">
+				<div class="scheme-wrap">Збір інформації та розрахунок вартості</div>
+			</li>
+			<li class="scheme-item">
+				<div class="scheme-wrap">Переказ коштів та покупка авто</div>
+			</li>
+			<li class="scheme-item">
+				<div class="scheme-wrap">Сертифікація та державна реєстрація</div>
+			</li>
+			<li class="scheme-item">
+				<div class="scheme-wrap">Розмитнення транспортного засобу</div>
+			</li>
+			<li class="scheme-item">
+				<div class="scheme-wrap">Доставка авто в Україну</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Звітність та комунікація</h2>
+		</header>
+
+		<ul class="list-lg">
+			<li><img src="pictures/bitrix24.png" width="100px" alt="bitrix24">  -  Уніфікована система спілкування, планування та звітності Birtix24;</li>
+			<li><img src="pictures/webex24.png" width="100px" alt="webex24">  -  Система спілкування між відділом закупок та брокерами Webex24;</li>
+			<li><img src="pictures/logo-dark.svg" width="100px" alt="West Auto HUB"> - Інтерактивний веб сайт Wes Auto Hub для клієнтів <a href="https://www.westautohub.com">westautohub.com</a></li>
+		</ul>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Аналіз ринку</h2>
+		</header>
+
+		<ul>
+			<li><mark class="mark"><b>Цільова аудиторія</b>.</mark>  Цільовою аудиторією є будь-який автовласник, покупець автомобіля, а також оптовий клієнт.</li>
+			<li><mark class="mark"><b>Конкуренція</b>.</mark> На даний момент конкуренти є тільки в окремих сегментах надання послуг. Серед них є логістичні та брокерські
+			компанії, торговельні майданчики, онлайн платформи, а також так звані “гонщики”.</li>
+			<li><mark class="mark"><b>Тенденції ринку</b>.</mark> Автомобіль є невід’ємною частиною багатьох українців. На даний момент на тисячу українців припадає 202 автомобіля і тенденція зростаюча.</li>
+		</ul>
+	</section>
+
+	<section class="slide logo-left">
+		<header>
+			<img src="pictures/logo-dark.svg" class="logo" alt="" width="1000" height="302">
+			<h2>Маркетинг</h2>
+		</header>
+
+		<p>Ми співпрацюватимемо з компанією Netpeak (<a href="https://netpeak.ua">https://netpeak.ua</a>) для ефективного впровадження маркетингової стратегії в інтернеті.</p>
+
+		<ul>
+			<li>Просування вебсайту West Auto Hub;</li>
+			<li>Контекстна реклама;</li>
+		</ul>
+
+		<p>Також наші професіонали постійно працюють в соціальних мережах Facebook, Instagram для популяризації компанії серед потенційних клієнтів.</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout shrink">Дякую за увагу</h2>
+	</section>
+
+
+	<div class="progress"></div>
+
+	<script src="shower/shower.min.js"></script>
+
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108623010-1"></script>
+	<script>
+  		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'UA-108623010-1');
+	</script>
+</body>
+</html>
